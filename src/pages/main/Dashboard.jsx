@@ -1,5 +1,6 @@
 import ParticlesComponent from '../../components/main/particle';
 import LockedCardDialog from '../../components/main/cards';
+import { Toaster } from "../../components/ui/toaster";  // ✅ Import ShadCN Toaster
 
 const Dashboard = () => {
   // Updated problems to match JSON structure
@@ -47,7 +48,11 @@ const Dashboard = () => {
 
   return (
     <div className="flex justify-center items-center min-h-screen p-6">
+      {/* 🟢 Toaster Component for Showing Toast Notifications */}
+      <Toaster position="top-center" reverseOrder={false} />
+
       <ParticlesComponent id="particles" className="absolute inset-0 -z-10" />
+      
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
         {problems.map((problem) => (
           <LockedCardDialog key={problem.ctf_id} problem={problem} />

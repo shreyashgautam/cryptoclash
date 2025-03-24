@@ -17,12 +17,10 @@ const generateRandomCode = () => {
 const MainTeam = () => {
   const [teamName, setTeamName] = useState("");
   const [teamCode, setTeamCode] = useState("");
-  const [inputTeamName, setInputTeamName] = useState("");
   const [inputCode, setInputCode] = useState(new Array(6).fill(""));
   const [showCreateDialog, setShowCreateDialog] = useState(false);
   const [showJoinDialog, setShowJoinDialog] = useState(false);
   const [showTeamNameDialog, setShowTeamNameDialog] = useState(false);
-  const [isCodeInputVisible, setIsCodeInputVisible] = useState(false);
 
   // Handle team name input and generate code
   const handleCreateTeam = () => {
@@ -35,19 +33,12 @@ const MainTeam = () => {
     setShowTeamNameDialog(false);
   };
 
-  // Handle team name input before entering code
-  const handleTeamNameSubmit = () => {
-    if (!inputTeamName.trim()) {
-      alert("Please enter a valid team name!");
-      return;
-    }
-    setIsCodeInputVisible(true);
-  };
-
   // Handle OTP-style input change
   const handleInputChange = (value, index) => {
+   
+
     let newInput = [...inputCode];
-    newInput[index] = value.toUpperCase();
+    newInput[index] = value; // Convert to uppercase
     setInputCode(newInput);
 
     // Move focus to the next input field automatically
@@ -64,16 +55,14 @@ const MainTeam = () => {
       return;
     }
 
-    if (enteredCode !== teamCode || inputTeamName !== teamName) {
-      alert("Invalid team name or team code! Please try again.");
+    if (enteredCode !== teamCode) {
+      alert("Invalid team code! Please try again.");
       return;
     }
 
-    console.log(`Joining team: ${inputTeamName} with code: ${enteredCode}`);
+    console.log(`Joining team with code: ${enteredCode}`);
     setShowJoinDialog(false);
-    setInputTeamName("");
     setInputCode(new Array(6).fill(""));
-    setIsCodeInputVisible(false);
   };
 
   return (
@@ -141,50 +130,27 @@ const MainTeam = () => {
         <DialogContent className="bg-[#121212] border-[#FF3131] border-2 shadow-lg text-white p-6 rounded-lg transition-all duration-300">
           <h2 className="text-2xl font-bold text-[#FF3131] mb-4">Join a Team</h2>
 
-          {/* Team Name Input */}
-          {!isCodeInputVisible && (
-            <>
-              <input
-                type="text"
-                value={inputTeamName}
-                onChange={(e) => setInputTeamName(e.target.value)}
-                placeholder="Enter Team Name"
-                className="w-full p-3 text-black font-semibold text-lg rounded-lg mb-4"
-              />
-              <Button
-                className="w-full bg-[#FF3131] hover:bg-[#FF6347] text-black font-semibold py-3 rounded-lg transition-all duration-300 transform hover:scale-105"
-                onClick={handleTeamNameSubmit}
-              >
-                Next
-              </Button>
-            </>
-          )}
-
           {/* OTP-style 6 Input Boxes */}
-          {isCodeInputVisible && (
-            <>
-              <div className="flex justify-center gap-3 mb-4">
-                {inputCode.map((digit, index) => (
-                  <input
-                    key={index}
-                    id={`otp-${index}`}
-                    type="text"
-                    maxLength="1"
-                    value={digit}
-                    onChange={(e) => handleInputChange(e.target.value, index)}
-                    className="w-12 h-12 text-2xl text-center bg-[#1A1A1A] border-2 border-[#FF3131] text-white rounded-md focus:ring-4 focus:ring-[#FF6347] transition-all duration-300"
-                  />
-                ))}
-              </div>
+          <div className="flex justify-center gap-3">
+            {inputCode.map((digit, index) => (
+              <input
+                key={index}
+                id={`otp-${index}`}
+                type="text"
+                maxLength="1"
+                value={digit}
+                onChange={(e) => handleInputChange(e.target.value, index)}
+                className="w-12 h-12 text-2xl text-center bg-[#1A1A1A] border-2 border-[#FF3131] text-white rounded-md focus:ring-4 focus:ring-[#FF6347] transition-all duration-300"
+              />
+            ))}
+          </div>
 
-              <Button
-                className="w-full bg-[#FF3131] hover:bg-[#FF6347] text-black font-semibold py-3 rounded-lg transition-all duration-300 transform hover:scale-105"
-                onClick={handleJoinTeam}
-              >
-                Join Team
-              </Button>
-            </>
-          )}
+          <Button
+            className="w-full bg-[#FF3131] hover:bg-[#FF6347] text-black font-semibold py-3 rounded-lg mt-4 transition-all duration-300 transform hover:scale-105"
+            onClick={handleJoinTeam}
+          >
+            Join Team
+          </Button>
         </DialogContent>
       </Dialog>
     </div>

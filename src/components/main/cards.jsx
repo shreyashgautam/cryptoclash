@@ -5,15 +5,32 @@ import { Button } from "../ui/button";
 import { Separator } from "../ui/separator";
 import { Lock, Unlock } from "lucide-react";
 import { HyperText } from "../magicui/hyper-text";
+import { useToast } from "../../hooks/use-toast";  // 🚀 Import useToast from ShadCN UI
 
 const LockedCardDialog = ({ problem }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [showDialog, setShowDialog] = useState(false);
   const [answer, setAnswer] = useState("");
+  const { toast } = useToast();  // 🔥 Initialize the toast function
+
+  // Correct Flag
+  const correctFlag = "crypto{advanced_cipher_cracked}";
 
   // Handle Submission
   const handleSubmit = () => {
-    console.log("Submitted answer:", answer);
+    if (answer.trim() === correctFlag) {
+      toast({
+        title: "Correct Flag!",
+        description: "Well done! You solved the challenge 🎉",
+        variant: "success",
+      });
+    } else {
+      toast({
+        title: "Incorrect Flag!",
+        description: "Try again, keep hacking! 🚀",
+        variant: "destructive",
+      });
+    }
     setAnswer(""); // Clear input field after submission
   };
 
@@ -54,7 +71,7 @@ const LockedCardDialog = ({ problem }) => {
 
       {/* 🟢 Problem Dialog */}
       <Dialog open={showDialog} onOpenChange={setShowDialog}>
-      <DialogContent className="max-w-[70vw] sm:max-w-[50vw] bg-[#121212] border-[#00FF00] border-2 shadow-lg text-white p-8 rounded-lg transition-all duration-300">
+        <DialogContent className="max-w-[70vw] sm:max-w-[50vw] bg-[#121212] border-[#00FF00] border-2 shadow-lg text-white p-8 rounded-lg transition-all duration-300">
           
           {/* 🟢 Heading */}
           <h1 className="text-3xl font-bold text-[#ADFF2F]">  
