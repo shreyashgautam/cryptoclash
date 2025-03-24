@@ -4,12 +4,12 @@ import ParticlesComponent from '../../components/main/particle';
 
 const LoginPage = () => {
   const [username, setUsername] = useState("");
-  const [teamCode, setTeamCode] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Username", username);
-    console.log("Team Code:", teamCode);
+    console.log("Username:", username);
+    console.log("Password:", password);
     alert("Login Successful!");
   };
 
@@ -49,13 +49,13 @@ const LoginPage = () => {
           </div>
 
           <div className="flex flex-col">
-            <label className="mb-2 text-lg text-[#ADFF2F]">Team Code</label>
+            <label className="mb-2 text-lg text-[#ADFF2F]">Password</label>
             <input 
-              type="text"
-              value={teamCode}
-              onChange={(e) => setTeamCode(e.target.value)}
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               className="p-4 rounded-lg bg-[#0F0F0F] text-white border-2 border-[#ADFF2F] focus:outline-none focus:ring-2 focus:ring-[#ADFF2F] placeholder-gray-400"
-              placeholder="Enter Team Code"
+              placeholder="Enter Password"
               required
             />
           </div>

@@ -8,10 +8,10 @@ import ParticlesComponent from "./particle";
 
 // Sidebar Menu Items
 const SidebarMenu = [
-  { id: "dashboard", label: "Dashboard", path: "/main/dashboard" },
-  { id: "leaderboard", label: "Ranklist", path: "/main/leaderboard" },
-  { id: "team", label: "Add Team", path: "/main/team" },
-  { id: "rules", label: "Rules", path: "/main/rules" },
+  { id: "dashboard", label: "Dashboard", path: "/dashboard" },
+  { id: "leaderboard", label: "Ranklist", path: "/leaderboard" },
+  { id: "team", label: "Add Team", path: "/team" },
+  { id: "rules", label: "Rules", path: "/rules" },
 ];
 
 function MenuItems({ setOpen }) {

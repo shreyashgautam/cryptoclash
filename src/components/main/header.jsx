@@ -16,7 +16,7 @@ function MainHeader({ setOpen }) {
 
   const handleLogout = () => {
     console.log("Logging out...");
-    navigate("/auth/login");
+    navigate("/login");
   };
 
   return (
@@ -64,7 +64,7 @@ function MainHeader({ setOpen }) {
             </DropdownMenuLabel>
 
             <DropdownMenuItem
-              onClick={() => navigate("/main/leaderboard")}
+              onClick={() => navigate("/leaderboard")}
               className="text-[#00FF41] hover:bg-[#00CC33] px-4 py-2 cursor-pointer transition-all duration-300 rounded-md"
             >
               Score
