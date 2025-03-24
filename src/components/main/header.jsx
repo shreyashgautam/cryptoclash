@@ -15,18 +15,19 @@ function MainHeader({ setOpen }) {
 
   const handleLogout = () => {
     console.log("Logging out...");
-    navigate("/login");
+    navigate("/auth/login");
   };
 
   return (
     <header className="relative flex items-center px-4 py-3 bg-black text-[#00FF41] justify-between font-['Playfair_Display']">
       {/* Background Particles */}
-      <ParticlesComponent id="particles" className="absolute inset-0 z-[-1] pointer-events-none" />
+      <ParticlesComponent id="particles" className="absolute inset-0 -z-10 pointer-events-none" />
 
-      {/* Toggle Menu Button for Mobile */}
+      {/* Mobile Menu Toggle Button */}
       <Button
         onClick={() => setOpen(true)}
-        className="lg:hidden sm:block bg-[#00FF41] text-black font-bold hover:bg-[#00CC33] focus:outline-none"
+        className="lg:hidden bg-[#00FF41] text-black font-bold hover:bg-[#00CC33] transition-all duration-300"
+        aria-label="Open Sidebar Menu"
       >
         <AlignJustify className="h-6 w-6" />
       </Button>
@@ -35,14 +36,18 @@ function MainHeader({ setOpen }) {
       <div className="flex flex-1 justify-end">
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <button className="w-12 h-12 bg-[#00FF41] rounded-full flex justify-center items-center text-black text-2xl font-bold cursor-pointer">
+            <button
+              className="w-12 h-12 bg-[#00FF41] rounded-full flex justify-center items-center 
+                         text-black text-2xl font-bold cursor-pointer hover:scale-105 transition-all duration-300"
+              aria-label="User Menu"
+            >
               S
             </button>
           </DropdownMenuTrigger>
 
           <DropdownMenuContent
             align="end"
-            sideOffset={8} // Ensures proper spacing
+            sideOffset={8}
             className="w-56 bg-[#1A1A1A] border border-[#00FF41] rounded-md shadow-lg"
           >
             <DropdownMenuLabel className="text-[#00FF41] font-['Playfair_Display'] px-4 py-2">
@@ -51,16 +56,17 @@ function MainHeader({ setOpen }) {
 
             <DropdownMenuItem
               onClick={() => navigate("/main/leaderboard")}
-              className="text-[#00FF41] hover:bg-[#00CC33] px-4 py-2 cursor-pointer transition-all duration-300"
+              className="text-[#00FF41] hover:bg-[#00CC33] px-4 py-2 cursor-pointer transition-all duration-300 rounded-md"
             >
               Score
             </DropdownMenuItem>
 
             <DropdownMenuItem
               onClick={handleLogout}
-              className="text-red-500 hover:bg-[#FF3131] px-4 py-2 cursor-pointer transition-all duration-300"
+              className="text-red-500 flex items-center gap-2 hover:bg-[#FF3131] px-4 py-2 cursor-pointer 
+                         transition-all duration-300 rounded-md"
             >
-              <LogOut className="mr-2 h-4 w-4" /> Logout
+              <LogOut className="h-4 w-4" /> Logout
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
