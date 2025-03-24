@@ -6,7 +6,7 @@ import ParticlesComponent from '../../components/main/particle';
 // Leaderboard Data (Sorted in Descending Order by Points)
 const leaderboardData = [
   { teamId: 1, team_name: "Alpha Hackers", points: 350 },
-  { teamId: 2, team_name: "Beta Warriors", points: 300 },
+  { teamId: 2, team_name: "Beta Warriors", points: 100 },
   { teamId: 3, team_name: "Cyber Legends", points: 280 },
   { teamId: 4, team_name: "Dark Force", points: 260 },
   { teamId: 5, team_name: "Shadow Stars", points: 240 },
