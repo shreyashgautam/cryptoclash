@@ -15,10 +15,11 @@ function App() {
     <Router> {/* Wrap everything inside Router */}
 
       <Routes>
-        <Route path="/" element={<AuthLayout />}>
+        
           <Route path="/login" element={<Authlogin />} />
-          <Route path="/register" element={<AuthRegister />} />
-        </Route>
+          <Route path="/" element={<AuthRegister />} />
+          
+      
         <Route path="/" element={<MainLayout />}>
           <Route path="dashboard" element={<MainDashboard />} />
           <Route path="leaderboard" element={<MainLeaderboard />} />
