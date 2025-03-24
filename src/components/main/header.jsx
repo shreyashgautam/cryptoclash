@@ -26,7 +26,7 @@ function MainHeader({ setOpen }) {
 
       {/* Logo + SCOPE (Centered) */}
       <div className="flex items-center gap-4">
-        <img src={img} alt="Logo" className="h-16 w-16 object-contain" /> {/* Increased Logo Size */}
+        <img src={img} alt="Logo" className="h-17 w-20 object-contain" /> {/* Increased Logo Size */}
         <div className="flex flex-col">
           <h4 className="text-lg font-extrabold tracking-wide">School of Computer Science and Engineering</h4> {/* Increased Font Size */}
         </div>
