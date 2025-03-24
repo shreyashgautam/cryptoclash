@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import ParticlesComponent from '../../components/main/particle';
 
 const LoginPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate(); // 🚀 Navigation hook
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -26,10 +28,10 @@ const LoginPage = () => {
       transition={{ duration: 0.8, ease: "easeOut" }}
       className="w-screen h-screen flex justify-center items-center bg-black text-white font-['Courier_New'] relative"
     >
-      {/* Particle Background (Now properly layered) */}
+      {/* Particle Background */}
       <ParticlesComponent id="particles" className="absolute inset-0 z-[-1] pointer-events-none" />
 
-      {/* Login Form (Ensured it's above the background) */}
+      {/* Login Form */}
       <div className="relative z-10 w-[90%] max-w-xl p-8 sm:p-12 bg-[#121212] rounded-3xl shadow-[0_0_25px_#00FF00] border-4 border-[#ADFF2F] hover:shadow-[0_0_35px_#ADFF2F] transition-transform duration-500 hover:scale-105">
         <h2 className="text-5xl font-extrabold text-center mb-10 uppercase bg-[#ADFF2F] py-4 rounded-lg shadow-md text-black tracking-wide">
           Login
@@ -69,6 +71,17 @@ const LoginPage = () => {
             Login
           </button>
         </form>
+
+        {/* Register Option */}
+        <p className="text-center text-lg mt-6">
+          Don't have an account? 
+          <button 
+            onClick={() => navigate("/register")}
+            className="ml-2 text-[#ADFF2F] font-bold hover:underline transition-all duration-300 hover:text-[#bfff00]"
+          >
+            Register Here
+          </button>
+        </p>
       </div>
     </motion.div>
   );
