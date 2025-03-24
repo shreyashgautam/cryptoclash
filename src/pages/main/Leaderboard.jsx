@@ -3,13 +3,14 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from ".
 import { motion } from "framer-motion";
 import ParticlesComponent from '../../components/main/particle';
 
+// Leaderboard Data (Sorted in Descending Order by Points)
 const leaderboardData = [
-  { position: 1, teamName: "Alpha Hackers", score: 350 },
-  { position: 2, teamName: "Beta Warriors", score: 300 },
-  { position: 3, teamName: "Cyber Legends", score: 280 },
-  { position: 4, teamName: "Dark Force", score: 260 },
-  { position: 5, teamName: "Shadow Stars", score: 240 },
-];
+  { teamId: 1, team_name: "Alpha Hackers", points: 350 },
+  { teamId: 2, team_name: "Beta Warriors", points: 300 },
+  { teamId: 3, team_name: "Cyber Legends", points: 280 },
+  { teamId: 4, team_name: "Dark Force", points: 260 },
+  { teamId: 5, team_name: "Shadow Stars", points: 240 },
+].sort((a, b) => b.points - a.points); // Sorting in descending order
 
 const Leaderboard = () => {
   const [data] = useState(leaderboardData);
@@ -42,19 +43,19 @@ const Leaderboard = () => {
                                    shadow-md hover:bg-[#111111] cursor-pointer hover:scale-105 border-b-4 border-[#ADFF2F]">
                 <TableHead className="text-left p-3 sm:p-6">Position</TableHead>
                 <TableHead className="text-left p-3 sm:p-6">Team Name</TableHead>
-                <TableHead className="text-left p-3 sm:p-6">Score</TableHead>
+                <TableHead className="text-left p-3 sm:p-6">Points</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
               {data.map((team, index) => (
                 <TableRow 
-                  key={index} 
+                  key={team.teamId} 
                   className="border-b-4 border-[#ADFF2F] text-lg sm:text-2xl transition-all duration-300 
                              hover:bg-[#111111] cursor-pointer hover:scale-105"
                 >
-                  <TableCell className="p-3 sm:p-6 text-[#00FF00] font-bold rounded-l-lg">{team.position}</TableCell>
-                  <TableCell className="p-3 sm:p-6">{team.teamName}</TableCell>
-                  <TableCell className="p-3 sm:p-6">{team.score}</TableCell>
+                  <TableCell className="p-3 sm:p-6 text-[#00FF00] font-bold rounded-l-lg">{index + 1}</TableCell>
+                  <TableCell className="p-3 sm:p-6">{team.team_name}</TableCell>
+                  <TableCell className="p-3 sm:p-6">{team.points}</TableCell>
                 </TableRow>
               ))}
             </TableBody>
