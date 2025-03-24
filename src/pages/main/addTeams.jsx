@@ -61,7 +61,7 @@ const MainTeam = () => {
   return (
     <div className="relative flex flex-col items-center justify-center min-h-screen text-white p-6">
       <ParticlesComponent id="particles" className="absolute inset-0 -z-10" />
-      <h1 className="text-4xl font-bold text-[#00FF00] mb-6">
+      <h1 className="text-100xl font-bold text-[#00FF00] mb-6">
         <HyperText>ADD TEAM</HyperText>
       </h1>
       <div className="flex gap-6">
