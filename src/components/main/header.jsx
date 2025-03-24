@@ -9,6 +9,7 @@ import {
   DropdownMenuItem,
   DropdownMenuLabel,
 } from "../ui/dropdown-menu"; // Ensure correct import
+import img from "../../assets/image.png";
 
 function MainHeader({ setOpen }) {
   const navigate = useNavigate();
@@ -22,6 +23,14 @@ function MainHeader({ setOpen }) {
     <header className="relative flex items-center px-4 py-3 bg-black text-[#00FF41] justify-between font-['Playfair_Display']">
       {/* Background Particles */}
       <ParticlesComponent id="particles" className="absolute inset-0 -z-10 pointer-events-none" />
+
+      {/* Logo + SCOPE (Centered) */}
+      <div className="flex items-center gap-4">
+        <img src={img} alt="Logo" className="h-16 w-16 object-contain" /> {/* Increased Logo Size */}
+        <div className="flex flex-col">
+          <h4 className="text-lg font-extrabold tracking-wide">School of Computer Science and Engineering</h4> {/* Increased Font Size */}
+        </div>
+      </div>
 
       {/* Mobile Menu Toggle Button */}
       <Button

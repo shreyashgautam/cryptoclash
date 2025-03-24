@@ -5,7 +5,6 @@ import { UserCog, LogOut } from "lucide-react";
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "../ui/sheet.jsx";
 import { HyperText } from "../magicui/hyper-text";
 import ParticlesComponent from "./particle";
-import img from "../../assets/image.png";
 
 // Sidebar Menu Items
 const SidebarMenu = [
@@ -51,12 +50,10 @@ function MainSideBar({ open, setOpen }) {
 
         <SheetContent side="left" className="w-60 bg-black text-[#ADFF2F] font-['Playfair_Display']">
           <div className="flex flex-col h-full">
-            {/* Logo + Title (No Hover Effects) */}
+            {/* Sidebar Title (Removed Logo & SCOPE) */}
             <SheetHeader className="border-b border-gray-700 py-3">
-              <SheetTitle className="flex flex-col gap-2 text-[#ADFF2F] px-3 py-2">
-                <img src={img} alt="Logo" className="h-16 w-16 object-contain" />
-                <h4 className="text-sm font-extrabold tracking-wide">School of Computer Science and Engineering</h4>
-                <h1 className="text-lg font-extrabold tracking-wide">CRYPTOCLASH</h1>
+              <SheetTitle className="text-lg font-extrabold tracking-wide text-[#ADFF2F] px-3 py-2">
+                CRYPTOCLASH
               </SheetTitle>
             </SheetHeader>
 
@@ -67,9 +64,7 @@ function MainSideBar({ open, setOpen }) {
 
       {/* Desktop Sidebar */}
       <aside className="hidden w-60 flex-col border-r bg-black p-5 lg:flex text-[#ADFF2F] font-['Playfair_Display']">
-        <div onClick={() => navigate("/main/dashboard")} className="flex flex-col gap-2 px-3 py-2 cursor-pointer text-[#ADFF2F]">
-          <img src={img} alt="Logo" className="h-28 w-28 object-contain" />
-          <h4 className="text-sm font-extrabold tracking-wide">School of Computer Science and Engineering</h4>
+        <div onClick={() => navigate("/main/dashboard")} className="px-3 py-2 cursor-pointer text-[#ADFF2F]">
           <h4 className="text-lg font-extrabold tracking-wide">CRYPTOCLASH</h4>
         </div>
 
