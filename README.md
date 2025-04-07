@@ -4,9 +4,10 @@
 
 ---
 
-## 🌐 Live Website
+## 🌐 Live Website Just The Frontend
 
-🔗 [Visit CryptoClash](https://your-live-link.vercel.app) *(Coming Soon)*
+
+🔗 [Visit CryptoClash](https://cryptoclash-roan.vercel.app/dashboard) 
 
 ---
 
@@ -64,4 +65,10 @@ cd cryptoclash
 npm install
 
 
+```
+
+### 3️⃣ Run the Development Server
+
+```bash
+npm run dev
 ```
